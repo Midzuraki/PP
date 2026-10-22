@@ -1,0 +1,14 @@
+<Window x:Class="AppliedProgramming.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="МДК 01.02 Прикладное программирование" Height="260" Width="380"
+        WindowStartupLocation="CenterScreen">
+    <StackPanel Margin="20" VerticalAlignment="Center">
+        <TextBlock Text="Практические работы" FontSize="18" FontWeight="SemiBold"
+                   HorizontalAlignment="Center" Margin="0,0,0,16"/>
+        <Button x:Name="btnPr1" Content="ПР №1. Калькулятор" Height="36" Margin="0,0,0,10"
+                Click="btnPr1_Click"/>
+        <Button x:Name="btnPr2" Content="ПР №2. Простая компоновка" Height="36"
+                Click="btnPr2_Click"/>
+    </StackPanel>
+</Window>
