@@ -4,23 +4,22 @@
         Title="Калькулятор" Height="520" Width="340"
         MinHeight="420" MinWidth="280"
         WindowStartupLocation="CenterScreen"
-        Background="#FF1F2A44">
+        Background="#ababab">
 
     <Window.Resources>
-        <!-- Общий стиль кнопок калькулятора -->
         <Style TargetType="Button">
             <Setter Property="Margin" Value="4"/>
             <Setter Property="FontSize" Value="26"/>
-            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="FontWeight" Value="Normal"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="#FF3B4B6E"/>
+            <Setter Property="Background" Value="#6e6b6c"/>
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
                         <Border x:Name="bd" Background="{TemplateBinding Background}"
-                                CornerRadius="10">
+                                CornerRadius="15">
                             <ContentPresenter HorizontalAlignment="Center"
                                               VerticalAlignment="Center"/>
                         </Border>
@@ -38,14 +37,15 @@
         </Style>
     </Window.Resources>
 
-    <!-- 5 строк (дисплей + 4 ряда кнопок) и 4 столбца -->
     <Grid Margin="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1.2*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="102*"/>
+            <RowDefinition Height="93*"/>
+            <RowDefinition Height="93*"/>
+            <RowDefinition Height="93*"/>
+            <RowDefinition Height="93*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -54,37 +54,32 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- Экран: растянут на все 4 столбца -->
         <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
-                Margin="4" Background="#FF121A2E" CornerRadius="10" Padding="10,0">
+                Margin="4,4,4,4" Background="#dedede" CornerRadius="15" Padding="10,0" Grid.RowSpan="3">
             <TextBlock x:Name="tbDisplay" Text="0"
-                       Foreground="#FFE8EEFF" FontSize="42"
+                       Foreground="#000000" FontSize="42"
                        HorizontalAlignment="Right" VerticalAlignment="Center"
                        TextTrimming="CharacterEllipsis"/>
         </Border>
 
-        <!-- Ряд 1 -->
-        <Button Grid.Row="1" Grid.Column="0" Content="7"/>
-        <Button Grid.Row="1" Grid.Column="1" Content="8"/>
-        <Button Grid.Row="1" Grid.Column="2" Content="9"/>
-        <Button Grid.Row="1" Grid.Column="3" Content="÷" Background="#FFE08A1E"/>
+        <Button Grid.Row="3" Grid.Column="0" Content="7" Margin="4,4,4,4" Click="Button_Click_2" Background="#dedede" Foreground="#000000"/>
+        <Button Grid.Row="3" Grid.Column="1" Content="8" Margin="4,4,4,4" Click="Button_Click_1" Background="#dedede" Foreground="#000000"/>
+        <Button Grid.Row="3" Grid.Column="2" Content="9" Margin="4,4,4,4" Background="#dedede" Foreground="#000000"/>
+        <Button Grid.Row="3" Grid.Column="3" Content="÷" Background="#6e6b6c" Margin="4,4,4,4"/>
 
-        <!-- Ряд 2 -->
-        <Button Grid.Row="2" Grid.Column="0" Content="4"/>
-        <Button Grid.Row="2" Grid.Column="1" Content="5"/>
-        <Button Grid.Row="2" Grid.Column="2" Content="6"/>
-        <Button Grid.Row="2" Grid.Column="3" Content="×" Background="#FFE08A1E"/>
+        <Button Grid.Row="4" Grid.Column="0" Content="4" Margin="4,4,4,4" Background="#dedede" Foreground="#000000"/>
+        <Button Grid.Row="4" Grid.Column="1" Content="5" Margin="4,4,4,4" Background="#dedede" Foreground="#000000"/>
+        <Button Grid.Row="4" Grid.Column="2" Content="6" Margin="4,4,4,4" Background="#dedede" Foreground="#000000" Click="Button_Click_3"/>
+        <Button Grid.Row="4" Grid.Column="3" Content="×" Background="#6e6b6c" Margin="4,4,4,4"/>
 
-        <!-- Ряд 3 -->
-        <Button Grid.Row="3" Grid.Column="0" Content="1"/>
-        <Button Grid.Row="3" Grid.Column="1" Content="2"/>
-        <Button Grid.Row="3" Grid.Column="2" Content="3"/>
-        <Button Grid.Row="3" Grid.Column="3" Content="−" Background="#FFE08A1E"/>
+        <Button Grid.Row="5" Grid.Column="0" Content="1" Margin="4,4,4,4" Background="#dedede" Foreground="#000000"/>
+        <Button Grid.Row="5" Grid.Column="1" Content="2" Margin="4,4,4,4" Background="#dedede" Foreground="#000000"/>
+        <Button Grid.Row="5" Grid.Column="2" Content="3" Margin="4,4,4,4" Background="#dedede" Foreground="#000000"/>
+        <Button Grid.Row="5" Grid.Column="3" Content="−" Background="#6e6b6c" Margin="4,4,4,4"/>
 
-        <!-- Ряд 4 -->
-        <Button Grid.Row="4" Grid.Column="0" Content="0"/>
-        <Button Grid.Row="4" Grid.Column="1" Content="C" Background="#FFC0392B"/>
-        <Button Grid.Row="4" Grid.Column="2" Content="=" Background="#FF2E9E5B"/>
-        <Button Grid.Row="4" Grid.Column="3" Content="+" Background="#FFE08A1E"/>
+        <Button Grid.Row="6" Grid.Column="0" Content="0" Margin="4,4,4,4" Background="#dedede" Foreground="#000000"/>
+        <Button Grid.Row="6" Grid.Column="1" Content="C" Margin="4,4,4,4" Background="#dedede" Foreground="#000000"/>
+        <Button Grid.Row="6" Grid.Column="2" Content="=" Margin="4,4,4,4" Background="#dedede" Foreground="#000000"/>
+        <Button Grid.Row="6" Grid.Column="3" Content="+" Background="#6e6b6c" Margin="4,4,4,4"/>
     </Grid>
 </Window>
