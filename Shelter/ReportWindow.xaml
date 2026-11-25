@@ -1,0 +1,57 @@
+<Window x:Class="AppliedProgramming.ReportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:AppliedProgramming"
+        Style="{DynamicResource AppWindow}"
+        Title="Отчёт по приюту" Width="860" Height="620" MinWidth="700" MinHeight="500"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel Margin="16">
+        <Grid DockPanel.Dock="Top" Margin="0,0,0,10">
+            <TextBlock Text="Отчёт администратора" Style="{StaticResource Title}" VerticalAlignment="Center"/>
+            <local:UserBar x:Name="userBar" HorizontalAlignment="Right"/>
+        </Grid>
+        <Button DockPanel.Dock="Bottom" Content="Назад" HorizontalAlignment="Left" Margin="0,10,0,0"
+                Click="btnBack_Click" ToolTip="Shift + 1"/>
+
+        <UniformGrid DockPanel.Dock="Top" Columns="2" Margin="-6,0,-6,10">
+            <Border Style="{StaticResource Panel}" Margin="6">
+                <StackPanel>
+                    <TextBlock x:Name="tbInShelter" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Содержится животных" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+            <Border Style="{StaticResource Panel}" Margin="6">
+                <StackPanel>
+                    <TextBlock x:Name="tbAdopted" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    <TextBlock Text="Отдано в семьи" HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.Column="0" Margin="0,0,10,0">
+                <TextBlock DockPanel.Dock="Top" Text="В приюте по видам" FontWeight="SemiBold" Margin="0,0,0,6"/>
+                <DataGrid x:Name="dgKinds">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Вид" Binding="{Binding Kind}" Width="*"/>
+                        <DataGridTextColumn Header="Кол-во" Binding="{Binding Count}" Width="70"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+            <DockPanel Grid.Column="1">
+                <TextBlock DockPanel.Dock="Top" Text="Выданные питомцы" FontWeight="SemiBold" Margin="0,0,0,6"/>
+                <DataGrid x:Name="dgAdopt">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=dd.MM.yyyy}" Width="90"/>
+                        <DataGridTextColumn Header="№" Binding="{Binding PetNumber}" Width="45"/>
+                        <DataGridTextColumn Header="Питомец" Binding="{Binding PetName}" Width="*"/>
+                        <DataGridTextColumn Header="Владелец" Binding="{Binding OwnerName}" Width="*"/>
+                        <DataGridTextColumn Header="Телефон" Binding="{Binding OwnerPhone}" Width="110"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </DockPanel>
+        </Grid>
+    </DockPanel>
+</Window>

@@ -1,0 +1,217 @@
+<Window x:Class="AppliedProgramming.Pr3Variant2Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:AppliedProgramming"
+        Title="ПР №3. Вариант 2" Width="1100" Height="700" MinWidth="900" MinHeight="560"
+        WindowStartupLocation="CenterScreen" Background="#FFEDEEF0" Foreground="#FF222222">
+    <Window.Resources>
+        <Style x:Key="Card" TargetType="Border">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Margin" Value="0,0,0,8"/>
+            <Setter Property="Padding" Value="12,8"/>
+        </Style>
+        <Style x:Key="Gray" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FF8A8F98"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style x:Key="Link" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#FF2A5885"/>
+        </Style>
+        <Style x:Key="Avatar" TargetType="Border">
+            <Setter Property="Width" Value="42"/>
+            <Setter Property="Height" Value="42"/>
+            <Setter Property="Margin" Value="0,0,6,6"/>
+            <Setter Property="Background" Value="#FFB7BFCB"/>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel>
+        <!-- Левая тёмная колонка с иконками -->
+        <Border DockPanel.Dock="Left" Width="56" Background="#FF4B586A">
+            <StackPanel Margin="0,12">
+                <TextBlock Text="◀" Foreground="White" HorizontalAlignment="Center" Margin="0,0,0,18"/>
+                <Ellipse Width="26" Height="26" Fill="#FFB7BFCB" Margin="0,0,0,16"/>
+                <TextBlock Text="▤" Foreground="White" FontSize="18" HorizontalAlignment="Center" Margin="0,0,0,14"/>
+                <TextBlock Text="✉" Foreground="White" FontSize="18" HorizontalAlignment="Center" Margin="0,0,0,14"/>
+                <TextBlock Text="☺" Foreground="White" FontSize="18" HorizontalAlignment="Center" Margin="0,0,0,14"/>
+                <TextBlock Text="▦" Foreground="White" FontSize="18" HorizontalAlignment="Center" Margin="0,0,0,14"/>
+                <TextBlock Text="♪" Foreground="White" FontSize="18" HorizontalAlignment="Center" Margin="0,0,0,14"/>
+                <TextBlock Text="★" Foreground="White" FontSize="18" HorizontalAlignment="Center" Margin="0,0,0,14"/>
+                <TextBlock Text="⚲" Foreground="White" FontSize="18" HorizontalAlignment="Center" Margin="0,0,0,14"/>
+                <TextBlock Text="⚙" Foreground="White" FontSize="18" HorizontalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Заголовок -->
+        <Grid DockPanel.Dock="Top" Margin="16,12,16,8">
+            <TextBlock Text="Юрий Гагарин" FontSize="22" FontWeight="SemiBold"/>
+            <Border Width="30" Height="30" CornerRadius="15" BorderBrush="#FFB0B5BD" BorderThickness="1"
+                    HorizontalAlignment="Right">
+                <TextBlock Text="⋯" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+        </Grid>
+
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Grid Margin="16,0,16,16">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.1*"/>
+                    <ColumnDefinition Width="1.2*"/>
+                    <ColumnDefinition Width="1.2*"/>
+                    <ColumnDefinition Width="1.3*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Колонка 1: фото и статус -->
+                <StackPanel Grid.Column="0" Margin="0,0,8,0">
+                    <Border Style="{StaticResource Card}" Padding="0">
+                        <StackPanel>
+                            <Border Height="210" Background="#FF8A94A3">
+                                <TextBlock Text="Фото" Foreground="White" FontSize="20"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            <StackPanel Margin="12,8">
+                                <TextBlock Text="Online" Style="{StaticResource Gray}"/>
+                                <TextBlock Text="Поехали!" FontSize="16" Margin="0,4,0,8"/>
+                            </StackPanel>
+                            <Border BorderBrush="#FFE3E5E8" BorderThickness="0,1,0,0" Padding="12,8">
+                                <TextBlock Text="✉  Отправить сообщение" Style="{StaticResource Link}"/>
+                            </Border>
+                            <Border BorderBrush="#FFE3E5E8" BorderThickness="0,1,0,0" Padding="12,8">
+                                <TextBlock Text="☺  У вас в друзьях ▾" Style="{StaticResource Link}"/>
+                            </Border>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- Колонка 2: информация и друзья -->
+                <StackPanel Grid.Column="1" Margin="0,0,8,0">
+                    <Border Style="{StaticResource Card}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="День рождения" Style="{StaticResource Gray}" Margin="0,0,16,6"/>
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="9 марта 1934 г."/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Город" Style="{StaticResource Gray}"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="Гжатск"/>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource Card}">
+                        <TextBlock Text="Показать информацию" Style="{StaticResource Link}"/>
+                    </Border>
+                    <Border Style="{StaticResource Card}">
+                        <DockPanel>
+                            <TextBlock DockPanel.Dock="Right" Text="725 162" Style="{StaticResource Gray}"/>
+                            <TextBlock Text="Подписчики"/>
+                        </DockPanel>
+                    </Border>
+                    <Border Style="{StaticResource Card}">
+                        <TextBlock Text="🎁  Отправить подарок" Style="{StaticResource Link}"/>
+                    </Border>
+                    <Border Style="{StaticResource Card}">
+                        <StackPanel>
+                            <DockPanel Margin="0,0,0,8">
+                                <TextBlock DockPanel.Dock="Right" Text="›" Style="{StaticResource Gray}"/>
+                                <TextBlock Text="Общие друзья  2"/>
+                            </DockPanel>
+                            <WrapPanel>
+                                <Border Style="{StaticResource Avatar}"/>
+                                <Border Style="{StaticResource Avatar}"/>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+                    <Border Style="{StaticResource Card}">
+                        <StackPanel>
+                            <DockPanel Margin="0,0,0,8">
+                                <TextBlock DockPanel.Dock="Right" Text="›" Style="{StaticResource Gray}"/>
+                                <TextBlock Text="Друзья  491"/>
+                            </DockPanel>
+                            <WrapPanel>
+                                <Border Style="{StaticResource Avatar}"/>
+                                <Border Style="{StaticResource Avatar}"/>
+                                <Border Style="{StaticResource Avatar}"/>
+                                <Border Style="{StaticResource Avatar}"/>
+                                <Border Style="{StaticResource Avatar}"/>
+                                <Border Style="{StaticResource Avatar}"/>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- Колонка 3: страницы, альбомы, фото -->
+                <StackPanel Grid.Column="2" Margin="0,0,8,0">
+                    <Border Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="Интересные страницы  2" Margin="0,0,0,8"/>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,6">
+                                <Border Style="{StaticResource Avatar}" Width="30" Height="30"/>
+                                <StackPanel>
+                                    <TextBlock Text="Советская космонавтика" Style="{StaticResource Link}"/>
+                                    <TextBlock Text="Наука и техника" Style="{StaticResource Gray}"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Border Style="{StaticResource Avatar}" Width="30" Height="30"/>
+                                <StackPanel>
+                                    <TextBlock Text="LIVE Экспресс" Style="{StaticResource Link}"/>
+                                    <TextBlock Text="Наука и техника" Style="{StaticResource Gray}"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                    <Border Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="Фотоальбомы  3" Margin="0,0,0,8"/>
+                            <UniformGrid Rows="1">
+                                <Border Height="60" Margin="0,0,3,0" Background="#FF5D7391"/>
+                                <Border Height="60" Margin="3,0,0,0" Background="#FF7A8A9E"/>
+                            </UniformGrid>
+                        </StackPanel>
+                    </Border>
+                    <Border Style="{StaticResource Card}">
+                        <StackPanel>
+                            <TextBlock Text="Фотографии  223" Margin="0,0,0,8"/>
+                            <UniformGrid Columns="2">
+                                <Border Height="60" Margin="0,0,3,3" Background="#FF2B3C57"/>
+                                <Border Height="60" Margin="3,0,0,3" Background="#FF8795A8"/>
+                                <Border Height="60" Margin="0,3,3,0" Background="#FF6E7F95"/>
+                                <Border Height="60" Margin="3,3,0,0" Background="#FF3F5272"/>
+                            </UniformGrid>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <!-- Колонка 4: стена -->
+                <StackPanel Grid.Column="3">
+                    <Border Style="{StaticResource Card}">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Все записи  566" FontWeight="SemiBold" Margin="0,0,20,0"/>
+                            <TextBlock Text="Записи Юрий Гагарин" Style="{StaticResource Link}"/>
+                        </StackPanel>
+                    </Border>
+                    <Border Style="{StaticResource Card}" Padding="0">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="12,10,12,6">
+                                <Border Style="{StaticResource Avatar}" Width="36" Height="36"/>
+                                <StackPanel>
+                                    <TextBlock Text="Юрий Гагарин" Style="{StaticResource Link}" FontWeight="SemiBold"/>
+                                    <TextBlock Text="12 апреля 1961 г." Style="{StaticResource Gray}"/>
+                                </StackPanel>
+                            </StackPanel>
+                            <TextBlock Text="Вижу Землю." Margin="12,0,12,8"/>
+                            <Border Height="230" Background="#FF14213D">
+                                <Ellipse Width="170" Height="170" Fill="#FF3D6FB6"/>
+                            </Border>
+                            <DockPanel Margin="12,8">
+                                <TextBlock DockPanel.Dock="Right" Text="♡ 792" Style="{StaticResource Gray}"/>
+                                <TextBlock Text="Мне нравится  1857" Style="{StaticResource Gray}"/>
+                            </DockPanel>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

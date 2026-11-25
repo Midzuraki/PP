@@ -1,0 +1,53 @@
+<Window x:Class="AppliedProgramming.AddPetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:AppliedProgramming"
+        Style="{DynamicResource AppWindow}"
+        Title="Регистрация питомца" Width="720" Height="720" MinWidth="600" MinHeight="500"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel Margin="16">
+        <Grid DockPanel.Dock="Top" Margin="0,0,0,10">
+            <TextBlock Text="Регистрация нового питомца" Style="{StaticResource Title}" VerticalAlignment="Center"/>
+            <local:UserBar x:Name="userBar" HorizontalAlignment="Right"/>
+        </Grid>
+        <Grid DockPanel.Dock="Bottom" Margin="0,10,0,0">
+            <Button Content="Назад" HorizontalAlignment="Left" Click="btnBack_Click" ToolTip="Shift + 1"/>
+            <Button Content="Зарегистрировать" HorizontalAlignment="Right" Click="btnSave_Click"/>
+        </Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <Border Style="{StaticResource Panel}">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                        <Label Content="Кличка" Style="{DynamicResource FormLabel}"/>
+                        <TextBox x:Name="tbName" local:Input.Mode="Letters" MaxLength="30" ToolTip="Цифры вводить нельзя"/>
+                        <Label Content="Вид животного" Style="{DynamicResource FormLabel}"/>
+                        <ComboBox x:Name="cbKind"/>
+                        <Label Content="Пол" Style="{DynamicResource FormLabel}"/>
+                        <ComboBox x:Name="cbGender"/>
+                        <Label Content="Порода" Style="{DynamicResource FormLabel}"/>
+                        <TextBox x:Name="tbBreed" local:Input.Mode="Letters" MaxLength="40"/>
+                        <Label Content="Окрас" Style="{DynamicResource FormLabel}"/>
+                        <TextBox x:Name="tbColor" local:Input.Mode="Letters" MaxLength="40"/>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                        <Label Content="Размер" Style="{DynamicResource FormLabel}"/>
+                        <ComboBox x:Name="cbSize"/>
+                        <Label Content="Примерный возраст, лет" Style="{DynamicResource FormLabel}"/>
+                        <TextBox x:Name="tbAge" local:Input.Mode="Decimal" MaxLength="5" ToolTip="Только цифры"/>
+                        <Label Content="Вес, кг" Style="{DynamicResource FormLabel}"/>
+                        <TextBox x:Name="tbWeight" local:Input.Mode="Decimal" MaxLength="6" ToolTip="Только цифры"/>
+                        <Label Content="Прививки" Style="{DynamicResource FormLabel}"/>
+                        <TextBox x:Name="tbVaccines" MaxLength="100" ToolTip="Можно оставить пустым"/>
+                        <Label Content="Фото" Style="{DynamicResource FormLabel}"/>
+                        <DockPanel>
+                            <Button DockPanel.Dock="Right" Content="Обзор..." Click="btnPhoto_Click"/>
+                            <TextBox x:Name="tbPhoto" IsReadOnly="True" ToolTip="Файл с фотографией питомца"/>
+                        </DockPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </ScrollViewer>
+    </DockPanel>
+</Window>

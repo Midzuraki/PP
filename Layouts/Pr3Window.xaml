@@ -1,0 +1,13 @@
+<Window x:Class="AppliedProgramming.Pr3Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:AppliedProgramming"
+        Style="{DynamicResource AppWindow}"
+        Title="ПР №3. Сложная компоновка" Width="360" Height="230"
+        WindowStartupLocation="CenterScreen">
+    <Border Style="{StaticResource Panel}" Margin="16" VerticalAlignment="Center">
+        <StackPanel>
+            <TextBlock Text="Выберите вариант интерфейса" Style="{StaticResource Title}" FontSize="17" Margin="0,0,0,10"/>
+            <Button Content="Вариант 1 — редактор заметок" Click="V1_Click"/>
+            <Button Content="Вариант 2 — страница профиля" Click="V2_Click"/>
+        </StackPanel>
+    </Border>
+</Window>

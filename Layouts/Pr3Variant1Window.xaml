@@ -1,0 +1,138 @@
+<Window x:Class="AppliedProgramming.Pr3Variant1Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:AppliedProgramming"
+        Title="ПР №3. Вариант 1" Width="920" Height="620" MinWidth="700" MinHeight="500"
+        WindowStartupLocation="CenterScreen" Background="#FF161616" Foreground="White">
+    <Window.Resources>
+        <SolidColorBrush x:Key="Orange" Color="#FFF0A030"/>
+        <SolidColorBrush x:Key="Frame" Color="#FF6C8EC9"/>
+        <Style x:Key="OrangeLabel" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="{StaticResource Orange}"/>
+            <Setter Property="FontSize" Value="13"/>
+        </Style>
+        <Style x:Key="Tile" TargetType="Border">
+            <Setter Property="Margin" Value="6"/>
+            <Setter Property="CornerRadius" Value="4"/>
+            <Setter Property="Padding" Value="6"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Text="Назад" Margin="0,0,0,10"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Текст записи -->
+            <Border Grid.Column="0" BorderBrush="{StaticResource Frame}" BorderThickness="1" Margin="0,0,12,0">
+                <TextBlock Margin="8" TextWrapping="Wrap" FontSize="13"
+                           Text="Сегодня я прошёлся под дождём. Там так сыро, что как будто я сейчас накожусь в море. Серьёзно! Сейчас уже рыболовный крючок потянется!"/>
+            </Border>
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <!-- Заголовок "Текст" со слайдером и корзиной -->
+                <DockPanel Grid.Row="0" Margin="0,0,0,4">
+                    <TextBlock DockPanel.Dock="Right" Text="Текст" Style="{StaticResource OrangeLabel}"/>
+                    <Slider Width="90" Value="40" Maximum="100" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <TextBlock Text="🗑" Margin="6,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                </DockPanel>
+
+                <!-- Вложения -->
+                <Grid Grid.Row="1">
+                    <Border BorderBrush="{StaticResource Frame}" BorderThickness="1">
+                        <Grid>
+                            <TextBlock Text="Вложения" Style="{StaticResource OrangeLabel}"
+                                       HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,-18,0,0"/>
+                            <TextBlock Text="3|12" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,4,8,0"/>
+                            <UniformGrid Rows="1" VerticalAlignment="Center" Margin="4,16,4,4">
+                                <StackPanel>
+                                    <Border Style="{StaticResource Tile}" Background="#FFE0603A" Height="70">
+                                        <TextBlock Text="♪" FontSize="34" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <TextBlock Text="01_poets_o..." FontSize="10" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Border Style="{StaticResource Tile}" Background="#FF2B2B2B" BorderBrush="#FF888888" BorderThickness="1" Height="70">
+                                        <TextBlock Text="🗎" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <TextBlock Text="BBoyingSchool.ai" FontSize="10" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Border Style="{StaticResource Tile}" Background="#FFE0603A" Height="70">
+                                        <TextBlock Text="♪" FontSize="34" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <TextBlock Text="Adamentia..." FontSize="10" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </UniformGrid>
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <TextBlock Grid.Row="2" Text="Голос" Style="{StaticResource OrangeLabel}"
+                           HorizontalAlignment="Right" Margin="0,8,0,4"/>
+
+                <!-- Голос: кнопка стоп, таймер, эквалайзер -->
+                <Border Grid.Row="3" BorderBrush="{StaticResource Frame}" BorderThickness="1">
+                    <Grid Margin="8">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                            <Border Width="26" Height="26" BorderBrush="#FF888888" BorderThickness="1" ToolTip="Стоп">
+                                <Rectangle Width="12" Height="12" Fill="#FF1E6BFF"/>
+                            </Border>
+                            <TextBlock Text="00:00:02:1" Margin="14,0,0,0" VerticalAlignment="Center" FontSize="15"/>
+                        </StackPanel>
+                        <Grid Grid.Row="1">
+                            <TextBlock Text="🗑" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                            <Canvas Height="40" Width="140" VerticalAlignment="Bottom" HorizontalAlignment="Right">
+                                <Rectangle Canvas.Left="0" Canvas.Top="30" Width="6" Height="10" Fill="#FF1E6BFF"/>
+                                <Rectangle Canvas.Left="12" Canvas.Top="22" Width="6" Height="18" Fill="#FF1E6BFF"/>
+                                <Rectangle Canvas.Left="24" Canvas.Top="14" Width="6" Height="26" Fill="#FF1E6BFF"/>
+                                <Rectangle Canvas.Left="36" Canvas.Top="26" Width="6" Height="14" Fill="#FF1E6BFF"/>
+                                <Rectangle Canvas.Left="48" Canvas.Top="8" Width="6" Height="32" Fill="#FF1E6BFF"/>
+                                <Rectangle Canvas.Left="60" Canvas.Top="20" Width="6" Height="20" Fill="#FF1E6BFF"/>
+                                <Rectangle Canvas.Left="72" Canvas.Top="30" Width="6" Height="10" Fill="#FF1E6BFF"/>
+                                <Rectangle Canvas.Left="84" Canvas.Top="18" Width="6" Height="22" Fill="#FF1E6BFF"/>
+                                <Rectangle Canvas.Left="96" Canvas.Top="32" Width="6" Height="8" Fill="#FF1E6BFF"/>
+                                <Rectangle Canvas.Left="108" Canvas.Top="26" Width="6" Height="14" Fill="#FF1E6BFF"/>
+                                <Rectangle Canvas.Left="120" Canvas.Top="34" Width="6" Height="6" Fill="#FF1E6BFF"/>
+                            </Canvas>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Grid>
+
+        <!-- Название записи и кнопка -->
+        <Grid Grid.Row="2" Margin="0,14,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <TextBlock Text="Название записи" Style="{StaticResource OrangeLabel}" Margin="0,0,0,4"/>
+                <TextBox Text="Сегодня" FontSize="22" Padding="8,4" Margin="0,0,14,0"
+                         Background="#FF1F1F1F" Foreground="White" BorderBrush="#FF555555"/>
+            </StackPanel>
+            <Button Grid.Column="1" Content="Создать" Width="150" Height="44" VerticalAlignment="Bottom"
+                    Background="#FF5B3A9D" Foreground="White"/>
+        </Grid>
+    </Grid>
+</Window>

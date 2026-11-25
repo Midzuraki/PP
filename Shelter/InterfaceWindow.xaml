@@ -1,0 +1,22 @@
+<Window x:Class="AppliedProgramming.InterfaceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:AppliedProgramming"
+        Style="{DynamicResource AppWindow}"
+        Title="ПР №4. Интерфейс системы" Width="420" Height="520"
+        WindowStartupLocation="CenterScreen">
+    <Border Style="{StaticResource Panel}" Margin="16">
+        <StackPanel>
+            <TextBlock Text="Окна системы «В добрые руки»" Style="{StaticResource Title}" Margin="0,0,0,4"/>
+            <TextBlock Text="Просмотр интерфейса каждого окна (вход выполняется от имени администратора)"
+                       Style="{StaticResource Muted}" TextWrapping="Wrap" Margin="0,0,0,12"/>
+            <Button Content="Авторизация" Tag="login" Click="Open_Click"/>
+            <Button Content="Регистрация пользователя" Tag="register" Click="Open_Click"/>
+            <Button Content="Главное окно (панель инструментов)" Tag="menu" Click="Open_Click"/>
+            <Button Content="Питомцы приюта + фильтры" Tag="pets" Click="Open_Click"/>
+            <Button Content="Заявка клиента" Tag="request" Click="Open_Click"/>
+            <Button Content="Регистрация питомца" Tag="addpet" Click="Open_Click"/>
+            <Button Content="Выдача питомца в семью" Tag="adopt" Click="Open_Click"/>
+            <Button Content="Ветеринарные процедуры" Tag="vet" Click="Open_Click"/>
+            <Button Content="Отчёт администратора" Tag="report" Click="Open_Click"/>
+        </StackPanel>
+    </Border>
+</Window>

@@ -1,4 +1,5 @@
 using System.Windows;
+using System.Windows.Controls;
 
 namespace AppliedProgramming
 {
@@ -7,20 +8,42 @@ namespace AppliedProgramming
         public MainWindow()
         {
             InitializeComponent();
+            btnTheme.Content = ThemeManager.ButtonText;
         }
 
-        // ПР №1: открыть калькулятор
-        private void btnPr1_Click(object sender, RoutedEventArgs e)
+        // Каждая кнопка запускает свою практическую работу в отдельном окне
+        private void Pr_Click(object sender, RoutedEventArgs e)
         {
-            CalculatorWindow w = new CalculatorWindow();
-            w.Show();
+            Window w = null;
+
+            switch (int.Parse((string)((Button)sender).Tag))
+            {
+                case 1: w = new CalculatorWindow(); break;
+                case 2: w = new CardWindow(); break;
+                case 3: w = new Pr3Window(); break;
+                case 4: w = new InterfaceWindow(); break;
+
+                // ПР 5-10: система «В добрые руки», начинается с окна авторизации
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                    w = new LoginWindow();
+                    break;
+
+                // ПР 11: главное окно системы с кнопкой смены темы
+                case 11: w = new MenuWindow("admin", "admin123"); break;
+            }
+
+            if (w != null) w.Show();
         }
 
-        // ПР №2: открыть окно с компоновкой
-        private void btnPr2_Click(object sender, RoutedEventArgs e)
+        private void btnTheme_Click(object sender, RoutedEventArgs e)
         {
-            CardWindow w = new CardWindow();
-            w.Show();
+            ThemeManager.Next();
+            btnTheme.Content = ThemeManager.ButtonText;
         }
     }
 }

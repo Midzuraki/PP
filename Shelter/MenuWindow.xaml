@@ -1,0 +1,82 @@
+<Window x:Class="AppliedProgramming.MenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:AppliedProgramming"
+        Style="{DynamicResource AppWindow}"
+        Title="Главное окно — «В добрые руки»" Width="980" Height="560" MinWidth="820" MinHeight="480"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <!-- ПР №8: ресурсы окна -->
+        <LinearGradientBrush x:Key="StatBrush" StartPoint="0,0" EndPoint="1,0">
+            <GradientStop Color="#FF2F6BFF" Offset="0"/>
+            <GradientStop Color="#FF9B51E0" Offset="1"/>
+        </LinearGradientBrush>
+        <Style x:Key="StatNumber" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="{StaticResource StatBrush}"/>
+        </Style>
+        <!-- ПР №10: триггер данных. Если право на функцию = False, кнопка видна, но неактивна -->
+        <Style x:Key="RoleButton" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <DockPanel Margin="16">
+        <Grid DockPanel.Dock="Top" Margin="0,0,0,10">
+            <TextBlock Text="В добрые руки" Style="{StaticResource Title}" VerticalAlignment="Center"/>
+            <local:UserBar x:Name="userBar" HorizontalAlignment="Right"/>
+        </Grid>
+
+        <!-- Панель инструментов -->
+        <Border DockPanel.Dock="Top" Style="{StaticResource Panel}" Padding="6">
+            <WrapPanel>
+                <Button Style="{StaticResource RoleButton}" Content="Питомцы" Tag="{Binding CanViewPets}" Click="btnPets_Click"/>
+                <Button Style="{StaticResource RoleButton}" Content="Заявка" Tag="{Binding CanRequest}" Click="btnRequest_Click"/>
+                <Button Style="{StaticResource RoleButton}" Content="Новый питомец" Tag="{Binding CanRegisterPet}" Click="btnAddPet_Click"/>
+                <Button Style="{StaticResource RoleButton}" Content="Выдача питомца" Tag="{Binding CanAdopt}" Click="btnAdopt_Click"/>
+                <Button Style="{StaticResource RoleButton}" Content="Ветеринария" Tag="{Binding CanVet}" Click="btnVet_Click"/>
+                <Button Style="{StaticResource RoleButton}" Content="Отчёт" Tag="{Binding CanReport}" Click="btnReport_Click"/>
+            </WrapPanel>
+        </Border>
+
+        <Grid DockPanel.Dock="Bottom" Margin="0,10,0,0">
+            <Button Content="Назад" HorizontalAlignment="Left" Click="btnBack_Click" ToolTip="Shift + 1"/>
+            <Button x:Name="btnTheme" HorizontalAlignment="Right" Click="btnTheme_Click"/>
+        </Grid>
+
+        <Grid Margin="0,14,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <TextBlock x:Name="tbWelcome" FontSize="20" FontWeight="SemiBold"/>
+                <TextBlock x:Name="tbRole" Style="{StaticResource Muted}" Margin="0,2,0,0"/>
+            </StackPanel>
+            <UniformGrid Grid.Row="1" Columns="3" VerticalAlignment="Center" Margin="0,10,0,0">
+                <Border Style="{StaticResource Panel}" Margin="6">
+                    <StackPanel>
+                        <TextBlock x:Name="tbInShelter" Style="{StaticResource StatNumber}"/>
+                        <TextBlock Text="Животных в приюте" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource Panel}" Margin="6">
+                    <StackPanel>
+                        <TextBlock x:Name="tbAdopted" Style="{StaticResource StatNumber}"/>
+                        <TextBlock Text="Отдано в семьи" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+                <Border Style="{StaticResource Panel}" Margin="6">
+                    <StackPanel>
+                        <TextBlock x:Name="tbRequests" Style="{StaticResource StatNumber}"/>
+                        <TextBlock Text="Заявок от клиентов" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </UniformGrid>
+        </Grid>
+    </DockPanel>
+</Window>

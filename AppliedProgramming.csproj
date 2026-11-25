@@ -5,6 +5,16 @@
     <TargetFramework>net10.0-windows</TargetFramework>
     <Nullable>disable</Nullable>
     <UseWPF>true</UseWPF>
+    <RootNamespace>AppliedProgramming</RootNamespace>
   </PropertyGroup>
+
+  <!-- Папка theory содержит учебные материалы и чужой проект Laba0: в сборку её включать нельзя -->
+  <ItemGroup>
+    <Compile Remove="theory\**" />
+    <Page Remove="theory\**" />
+    <ApplicationDefinition Remove="theory\**" />
+    <EmbeddedResource Remove="theory\**" />
+    <None Remove="theory\**" />
+  </ItemGroup>
 
 </Project>

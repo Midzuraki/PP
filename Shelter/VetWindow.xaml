@@ -1,0 +1,47 @@
+<Window x:Class="AppliedProgramming.VetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="clr-namespace:AppliedProgramming"
+        Style="{DynamicResource AppWindow}"
+        Title="Ветеринарные процедуры" Width="900" Height="680" MinWidth="700" MinHeight="560"
+        WindowStartupLocation="CenterScreen">
+    <DockPanel Margin="16">
+        <Grid DockPanel.Dock="Top" Margin="0,0,0,10">
+            <TextBlock Text="Ветеринарные процедуры" Style="{StaticResource Title}" VerticalAlignment="Center"/>
+            <local:UserBar x:Name="userBar" HorizontalAlignment="Right"/>
+        </Grid>
+        <Button DockPanel.Dock="Bottom" Content="Назад" HorizontalAlignment="Left" Margin="0,10,0,0"
+                Click="btnBack_Click" ToolTip="Shift + 1"/>
+
+        <Border DockPanel.Dock="Top" Style="{StaticResource Panel}" Margin="0,0,0,10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Margin="0,0,10,0">
+                    <Label Content="Дата манипуляции" Style="{DynamicResource FormLabel}"/>
+                    <DatePicker x:Name="dpDate" ToolTip="Дата проведения манипуляции"/>
+                    <Label Content="Вид манипуляции" Style="{DynamicResource FormLabel}"/>
+                    <ComboBox x:Name="cbProcedure"/>
+                </StackPanel>
+                <StackPanel Grid.Column="1" Margin="0,0,10,0">
+                    <Label Content="Питомец" Style="{DynamicResource FormLabel}"/>
+                    <ComboBox x:Name="cbPet" DisplayMemberPath="Display"/>
+                    <Label Content="Примечание" Style="{DynamicResource FormLabel}"/>
+                    <TextBox x:Name="tbNotes" MaxLength="150" ToolTip="Необязательное поле"/>
+                </StackPanel>
+                <Button Grid.Column="2" Content="Добавить запись" VerticalAlignment="Bottom" Margin="4,4,4,8" Click="btnAdd_Click"/>
+            </Grid>
+        </Border>
+
+        <DataGrid x:Name="dgRecords">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата" Binding="{Binding Date, StringFormat=dd.MM.yyyy}" Width="100"/>
+                <DataGridTextColumn Header="Манипуляция" Binding="{Binding Procedure}" Width="*"/>
+                <DataGridTextColumn Header="№" Binding="{Binding PetNumber}" Width="50"/>
+                <DataGridTextColumn Header="Питомец" Binding="{Binding PetName}" Width="*"/>
+                <DataGridTextColumn Header="Примечание" Binding="{Binding Notes}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </DockPanel>
+</Window>

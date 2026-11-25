@@ -1,0 +1,16 @@
+<UserControl x:Class="AppliedProgramming.UserBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+        <TextBlock x:Name="tbPassword" VerticalAlignment="Center" Margin="0,0,10,0"
+                   Foreground="{DynamicResource MutedTextBrush}"
+                   ToolTip="Пароль, переданный из окна авторизации"/>
+        <Menu Background="Transparent" VerticalAlignment="Center">
+            <MenuItem x:Name="miUser" FontWeight="SemiBold"
+                      Foreground="{DynamicResource TextBrush}"
+                      ToolTip="Нажмите, чтобы открыть меню пользователя">
+                <MenuItem Header="Выход" Foreground="Black" Background="White" Click="Exit_Click"/>
+            </MenuItem>
+        </Menu>
+    </StackPanel>
+</UserControl>
